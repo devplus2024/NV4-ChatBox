@@ -1,0 +1,46 @@
+<!-- templates/chat.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Chat</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+    <link rel="stylesheet" href="../static/css/styles.css">
+  </head>
+  <body class="relative bg-white" style="overflow-y: hidden;">
+    <div class="flex">
+      <div class="h-[680px] hidden w-[250px] bg-[#f5f5f5]">
+
+      </div>
+      <div class="w-full flex flex-col items-center">
+        <div class="fixed h-[560px] w-[1153px] flex items-start justify-start "
+          style="overflow-y: auto;">
+          <div
+            id="chatbox"
+            class="flex px-[149px] flex-col  my-[2rem] py-2  text-lg text-white ">
+          </div>
+        </div>
+        <div class="bottom-[2rem] self-center fixed ">
+          <form id="messageForm" class="flex  justify-center gap-4">
+            <input
+              class="xl:w-[50rem] sm:w-[12rem] py-2 px-2 rounded-lg"
+              style="border: 1px solid grey"
+              type="text"
+              id="messageInput"
+              autocomplete="off"
+              placeholder="Type a message..." />
+            <button
+              type="submit"
+              class="bg-black text-white py-2 px-3 rounded-lg">
+              <i class="ti ti-send"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+  </body>
+</html>

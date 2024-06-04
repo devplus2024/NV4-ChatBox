@@ -1,0 +1,10 @@
+{% extends "base.html" %} {% block content %}
+<h1>Welcome to the ChatBox</h1>
+{% if not current_user.is_authenticated and not
+request.cookies.get('registered') %}
+<a href="{{ url_for('register') }}">Register</a>
+<a href="{{ url_for('login') }}">Login</a>
+{% endif %} {% if current_user.is_authenticated %}
+<a href="{{ url_for('chat') }}">Chat</a>
+<a href="{{ url_for('logout') }}">Logout</a>
+{% endif %} {% endblock %}

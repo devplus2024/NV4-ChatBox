@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}ChatBox{% endblock %}</title>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="{{ url_for('index') }}">Home</a></li>
+        {% if not current_user.is_authenticated and not
+        request.cookies.get('registered') %}
+        <li><a href="{{ url_for('register') }}">Register</a></li>
+        <li><a href="{{ url_for('login') }}">Login</a></li>
+        {% endif %} {% if current_user.is_authenticated %}
+        <li><a href="{{ url_for('chat') }}">Chat</a></li>
+        <li><a href="{{ url_for('logout') }}">Logout</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+    {% block content %} {% endblock %}
+  </body>
+</html>
